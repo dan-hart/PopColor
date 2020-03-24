@@ -15,13 +15,15 @@ struct CustomColor: Hashable {
 }
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     @State var barColor = UIColor.blue
     @State var titleColor = UIColor.yellow
     
-    @State var barCustomColor = CustomColor(name: "Bar Color", value: UIColor.blue)
-    @State var titleCustomColor = CustomColor(name: "Title Color", value: UIColor.yellow)
+    @State var barCustomColor = CustomColor(name: "", value: UIColor.blue)
+    @State var titleCustomColor = CustomColor(name: "", value: UIColor.yellow)
     
-    @State var isAdjustingText: Bool = false
+    @State var isAdjustingSeccondaryColor: Bool = false
     
     var colors = [
         CustomColor(name: "Creamy Peach", value: UIColor(red:0.95, green:0.65, blue:0.51, alpha:1.00)),
@@ -51,23 +53,24 @@ struct ContentView: View {
             List {
                 ZStack {
                     Rectangle()
-                        .fill(Color(self.barColor))
+                        .fill(Color(self.colorScheme == .light ? self.barColor : self.titleColor))
                         .frame(width: 500, height: 300, alignment: .center)
+                        .padding()
                     Text("Test")
-                        .foregroundColor(Color(self.titleColor))
+                        .foregroundColor(Color(self.colorScheme == .light ? self.titleColor : self.barColor))
                         .font(.system(size: 200))
                 }
                 
-                Text("Bar Color: " + barCustomColor.name)
-                Text("Title Color: " + titleCustomColor.name)
+                Text("Main Color: " + barCustomColor.name)
+                Text("Seccondary Color: " + titleCustomColor.name)
                 
-                Toggle(isOn: $isAdjustingText) {
-                    Text("Adjust Text")
+                Toggle(isOn: $isAdjustingSeccondaryColor) {
+                    Text("Adjust Seccondary Color")
                 }.padding()
                 
                 ForEach(colors, id: \.self) { color in
                     Button(action: {
-                        if self.isAdjustingText {
+                        if self.isAdjustingSeccondaryColor {
                             self.titleColor = color.value
                             self.titleCustomColor = CustomColor(name: color.name, value: color.value)
                         } else {
@@ -86,10 +89,11 @@ struct ContentView: View {
                 
                 ZStack {
                     Rectangle()
-                        .fill(Color(self.barColor))
+                        .fill(Color(self.colorScheme == .light ? self.barColor : self.titleColor))
                         .frame(width: 500, height: 300, alignment: .center)
+                        .padding()
                     Text("Test")
-                        .foregroundColor(Color(self.titleColor))
+                        .foregroundColor(Color(self.colorScheme == .light ? self.titleColor : self.barColor))
                         .font(.system(size: 200))
                 }
                 
@@ -98,10 +102,10 @@ struct ContentView: View {
             }
             .navigationBarTitle("PopColor", displayMode: .inline)
             .background(NavigationConfigurator { nc in
-                nc.navigationBar.barTintColor = self.barColor
-                nc.navigationBar.backgroundColor = self.barColor
-                nc.navigationBar.largeTitleTextAttributes = [.foregroundColor: self.titleColor]
-                nc.navigationBar.titleTextAttributes = [.foregroundColor: self.titleColor]
+                nc.navigationBar.barTintColor = self.colorScheme == .light ? self.barColor : self.titleColor
+                nc.navigationBar.backgroundColor = self.colorScheme == .light ? self.barColor : self.titleColor
+                nc.navigationBar.largeTitleTextAttributes = [.foregroundColor: self.colorScheme == .light ? self.titleColor : self.barColor]
+                nc.navigationBar.titleTextAttributes = [.foregroundColor: self.colorScheme == .light ? self.titleColor : self.barColor]
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())
