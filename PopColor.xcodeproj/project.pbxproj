@@ -13,6 +13,8 @@
 		43563A03242A3BD40056A1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43563A02242A3BD40056A1EC /* Assets.xcassets */; };
 		43563A06242A3BD40056A1EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43563A05242A3BD40056A1EC /* Preview Assets.xcassets */; };
 		43563A09242A3BD40056A1EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43563A07242A3BD40056A1EC /* LaunchScreen.storyboard */; };
+		52B481092440F4C60023E849 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B481082440F4C60023E849 /* UIColorExtensions.swift */; };
+		52B4810B2440F5A50023E849 /* FlatUIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4810A2440F5A50023E849 /* FlatUIColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		43563A05242A3BD40056A1EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43563A08242A3BD40056A1EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43563A0A242A3BD40056A1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B481082440F4C60023E849 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		52B4810A2440F5A50023E849 /* FlatUIColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatUIColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				43563A07242A3BD40056A1EC /* LaunchScreen.storyboard */,
 				43563A0A242A3BD40056A1EC /* Info.plist */,
 				43563A04242A3BD40056A1EC /* Preview Content */,
+				52B481082440F4C60023E849 /* UIColorExtensions.swift */,
+				52B4810A2440F5A50023E849 /* FlatUIColors.swift */,
 			);
 			path = PopColor;
 			sourceTree = "<group>";
@@ -146,9 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B4810B2440F5A50023E849 /* FlatUIColors.swift in Sources */,
 				435639FD242A3BD30056A1EC /* AppDelegate.swift in Sources */,
 				435639FF242A3BD30056A1EC /* SceneDelegate.swift in Sources */,
 				43563A01242A3BD30056A1EC /* ContentView.swift in Sources */,
+				52B481092440F4C60023E849 /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
